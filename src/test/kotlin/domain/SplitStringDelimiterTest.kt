@@ -18,7 +18,6 @@ internal class SplitStringDelimiterTest {
     @Test
     fun 커스텀_구분자_테스트() {
         val input = "//;\n1;2;3"
-
         val result = "1,2,3"
         assertThat(splitStringDelimiter.splitString(input)).isEqualTo(result.split(","))
     }
