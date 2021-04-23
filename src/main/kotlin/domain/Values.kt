@@ -1,10 +1,12 @@
 package domain
 
-class Values(private val splitString: List<String>) {
+class Values(splitString: List<String>) {
 
-    lateinit var values: List<Value>
+    var values: List<Value> = splitString.map { Value(it) }
 
-    init {
-            values = splitString.map { Value(it) }
+    fun sum(): Int {
+        return values.map { it.number }
+            .reduce{total, number -> total + number}
     }
+
 }
