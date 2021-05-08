@@ -40,7 +40,7 @@ class Money(var inputPrice: Int) {
 
     private fun buyOnePiece() {
         inputPrice = inputPrice.minus(LOTTO_PRICE)
-        lottos.lottoList.add(Lotto())
+//        lottos.lottoList.add(Lotto())
     }
 
     private fun validation1000MoreThan() {
