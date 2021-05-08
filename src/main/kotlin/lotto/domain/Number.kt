@@ -3,8 +3,8 @@ package lotto.domain
 class Number(var number: Int) {
 
     companion object {
-        private const val LOTTO_MIN_NUMBER = 1
-        private const val LOTTO_MAX_NUMBER = 45
+        const val LOTTO_MIN_NUMBER = 1
+        const val LOTTO_MAX_NUMBER = 45
     }
 
     init {
