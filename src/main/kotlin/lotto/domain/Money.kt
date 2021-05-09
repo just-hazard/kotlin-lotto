@@ -6,7 +6,7 @@ package lotto.domain
 // 1000원 이상일 경우 루프를 돌면서 코인 충전 +1
 class Money(var inputPrice: Int) {
 
-    var lottos = Lottos()
+    var coin = Coin()
     var remainMoney: Int = 0
 
     companion object {
@@ -16,10 +16,10 @@ class Money(var inputPrice: Int) {
 
     init {
         validation1000MoreThan()
-        lottos = buyLotto()
+        buyLotto()
     }
 
-    private fun buyLotto() : Lottos {
+    private fun buyLotto() {
         // inputPrice가 1000원 이상일 경우 Lottos에 Lottos 객체 생성
         // Loop를 돌 때마다 해당 금액이 1000원 이상인지 확인하면서 돌고
         // 1000원 미만일 경우 거스름돈에 담기
@@ -28,8 +28,6 @@ class Money(var inputPrice: Int) {
             buyOnePiece()
         }
         change()
-
-        return lottos
     }
 
     private fun change() {
@@ -40,7 +38,7 @@ class Money(var inputPrice: Int) {
 
     private fun buyOnePiece() {
         inputPrice = inputPrice.minus(LOTTO_PRICE)
-//        lottos.lottoList.add(Lotto())
+        coin.coinCharge()
     }
 
     private fun validation1000MoreThan() {

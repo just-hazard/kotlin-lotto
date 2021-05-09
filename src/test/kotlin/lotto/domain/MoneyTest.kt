@@ -15,7 +15,7 @@ class MoneyTest {
     @Test
     fun 로또_생성_개수확인() {
         val money = Money(10000)
-        assertThat(money.lottos.lottoList.size).isEqualTo(10)
+        assertThat(money.coin.coin).isEqualTo(10)
     }
 
     @Test
