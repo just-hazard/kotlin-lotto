@@ -6,7 +6,7 @@ package lotto.domain
 // 1000원 이상일 경우 루프를 돌면서 코인 충전 +1
 class Money(var inputPrice: Int) {
 
-    var coin = Coin()
+    val coin = Coin()
     var remainMoney: Int = 0
 
     companion object {

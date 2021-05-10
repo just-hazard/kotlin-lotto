@@ -17,4 +17,9 @@ class LottoNumbersTest {
     fun 정적인_로또번호들_생성() {
         assertThat(lottoNumbers.numberSize()).isEqualTo(45)
     }
+
+    @Test
+    fun 번호_리스트_전달_확인() {
+        assertThat(LottoNumbers.collectionLottoNumbers().size).isEqualTo(45)
+    }
 }
