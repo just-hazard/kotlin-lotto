@@ -3,7 +3,7 @@ package domain
 class Value(value: String?) {
 
     companion object {
-        private const val ZERO = 0
+        const val ZERO = 0
     }
 
     var number: Int = 0
