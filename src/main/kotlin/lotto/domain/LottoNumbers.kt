@@ -8,6 +8,10 @@ class LottoNumbers {
             return lottoNumbers.values
         }
 
+        fun of(number: Int): Number {
+            return lottoNumbers[number]!!
+        }
+
         init {
             for(index in Number.LOTTO_MIN_NUMBER..Number.LOTTO_MAX_NUMBER) {
                 lottoNumbers[index] = Number(index)
