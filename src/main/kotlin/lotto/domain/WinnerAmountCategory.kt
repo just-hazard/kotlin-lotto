@@ -11,7 +11,7 @@ enum class WinnerAmountCategory(var matchNumber: Int,var winningAmount: Int,var 
     FIRST(6, 2000000000, "6개 일치");
 
     companion object {
-        fun matchCheck(matchNumber: Int): WinnerAmountCategory {
+        fun checkMatch(matchNumber: Int): WinnerAmountCategory {
             return Arrays.stream(values()).filter {
                 it.matchNumber == matchNumber
             }.findAny().orElse(ZERO)

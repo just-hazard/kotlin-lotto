@@ -1,6 +1,5 @@
 package lotto.domain
 
-import lotto.domain.WinnerAmountCategory
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
@@ -14,7 +13,7 @@ class WinnerAmountCategoryTest {
         "6=2000000000=6개 일치"],
         delimiter = '=')
     fun 로또_결과_확인(matchNumber: Int,winningAmount: Int, message: String) {
-        val winnerAmountCategory = WinnerAmountCategory.matchCheck(matchNumber)
+        val winnerAmountCategory = WinnerAmountCategory.checkMatch(matchNumber)
         assertThat(winnerAmountCategory.matchNumber).isEqualTo(matchNumber)
         assertThat(winnerAmountCategory.winningAmount).isEqualTo(winningAmount)
         assertThat(winnerAmountCategory.message).isEqualTo(message)
