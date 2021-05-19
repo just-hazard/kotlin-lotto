@@ -1,6 +1,8 @@
 package lotto.domain
 
 import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 
@@ -12,5 +14,11 @@ class NumberTest {
         Assertions.assertThatIllegalArgumentException().isThrownBy {
             Number(number)
         }.withMessage("1-45 범위 초과 숫자입니다.")
+    }
+
+    @Test
+    fun 같은번호_확인() {
+        val number = Number(1)
+        assertThat(number.isSameNumber(number, number)).isTrue
     }
 }

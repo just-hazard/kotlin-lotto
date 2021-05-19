@@ -16,4 +16,8 @@ class Number(var number: Int) {
             throw IllegalArgumentException("1-45 범위 초과 숫자입니다.")
         }
     }
+
+    fun isSameNumber(number: Number, winnerNumber: Number) : Boolean {
+        return number == winnerNumber
+    }
 }
