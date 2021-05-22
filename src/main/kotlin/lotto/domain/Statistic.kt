@@ -1,6 +1,7 @@
 package lotto.domain
 
-import java.util.LinkedHashMap
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class Statistic {
     val matchResultMap: LinkedHashMap<WinnerAmountCategory, Int> = LinkedHashMap()
@@ -8,6 +9,7 @@ class Statistic {
     companion object {
         private const val MATCH_DEFAULT_COUNT = 0
         private const val COUNT = 1
+        private const val TWO_DECIMAL = 2
     }
 
     fun confirmOfLotto(lottos: Lottos, winnerNumbers: WinnerNumbers) {
@@ -40,4 +42,19 @@ class Statistic {
                 matchResultMap[it] = MATCH_DEFAULT_COUNT
             }
     }
+
+    fun rateOfReturn(totalAmountMoney: Int): Double {
+        return BigDecimal.valueOf(totalAmountMoney.toDouble() / totalBuyCount().toDouble())
+            .setScale(TWO_DECIMAL, RoundingMode.DOWN).toDouble()
+    }
+
+    private fun totalBuyCount(): Int {
+        var count = 0
+        matchResultMap.values
+            .forEach {
+                count += it
+            }
+        return count
+    }
+
 }

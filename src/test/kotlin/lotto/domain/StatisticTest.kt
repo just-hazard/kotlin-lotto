@@ -40,4 +40,20 @@ class StatisticTest {
         assertThat(statistic.matchResultMap[WinnerAmountCategory.FIFTH]).isEqualTo(1)
         assertThat(statistic.matchResultMap[WinnerAmountCategory.ZERO]).isEqualTo(2)
     }
+
+    @Test
+    fun 수익률_구하기() {
+        // given
+        lottos.lottoList.addAll(
+            listOf(Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(10),LottoNumbers.of(9),LottoNumbers.of(8),LottoNumbers.of(7))),
+                Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(10),LottoNumbers.of(9),LottoNumbers.of(8),LottoNumbers.of(7))),
+                Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(10),LottoNumbers.of(9),LottoNumbers.of(8),LottoNumbers.of(7))),
+                Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(3),LottoNumbers.of(9),LottoNumbers.of(8),LottoNumbers.of(7))),
+                Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(10),LottoNumbers.of(9),LottoNumbers.of(8),LottoNumbers.of(7)))
+            )
+        )
+        // when then
+        statistic.confirmOfLotto(lottos, winnerNumbers)
+        assertThat(statistic.rateOfReturn(5000)).isEqualTo(1000.0)
+    }
 }
