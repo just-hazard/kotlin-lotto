@@ -28,4 +28,8 @@ class Lotto(var inputNumbers: List<Number>) {
     fun getNumbers() : List<Number> {
         return numbers
     }
+
+    override fun toString(): String {
+        return "$numbers"
+    }
 }

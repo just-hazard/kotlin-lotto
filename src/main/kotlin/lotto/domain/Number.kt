@@ -20,4 +20,8 @@ class Number(var number: Int) {
     fun isSameNumber(number: Number, winnerNumber: Number) : Boolean {
         return number == winnerNumber
     }
+
+    override fun toString(): String {
+        return number.toString()
+    }
 }
