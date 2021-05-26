@@ -33,7 +33,8 @@ class LottoGame {
     }
 
     private fun createWinnerNumbers(inputWinnerNumbers: String): WinnerNumbers {
-        return WinnerNumbers(inputWinnerNumbers)
+        // 보너스볼 리팩토링
+        return WinnerNumbers(inputWinnerNumbers,1)
     }
 
     private fun buyLotto(coin : Int) : Lottos {

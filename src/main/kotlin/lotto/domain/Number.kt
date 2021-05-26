@@ -17,8 +17,8 @@ class Number(var number: Int) {
         }
     }
 
-    fun isSameNumber(number: Number, winnerNumber: Number) : Boolean {
-        return number == winnerNumber
+    fun isSameNumber(number: Number, secondNumber: Number) : Boolean {
+        return number == secondNumber
     }
 
     override fun toString(): String {

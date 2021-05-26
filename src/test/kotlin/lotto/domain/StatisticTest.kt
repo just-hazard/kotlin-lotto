@@ -14,7 +14,8 @@ class StatisticTest {
     internal fun setUp() {
         statistic = Statistic()
         lottos = Lottos()
-        winnerNumbers = WinnerNumbers("1,2,3,4,5,6")
+        // 보너스볼 리팩토링
+        winnerNumbers = WinnerNumbers("1,2,3,4,5,6",7)
     }
 
     @Test
