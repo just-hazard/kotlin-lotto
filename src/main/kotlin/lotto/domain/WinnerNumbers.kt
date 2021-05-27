@@ -26,4 +26,8 @@ class WinnerNumbers(stringWinnerNumbers: String, inputBonusBall: Int) {
             number.isSameNumber(number, it)
         }
     }
+
+    fun checkMatchBonusBall(numbers: List<Number>): Boolean {
+        return numbers.contains(bonusBall)
+    }
 }
