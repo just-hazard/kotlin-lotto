@@ -23,7 +23,7 @@ class Statistic {
     }
 
     private fun matchWinnerAmount(winnerNumbers: WinnerNumbers, numbers: List<Number>) {
-        matchCount(WinnerAmountCategory.checkMatch(checkMatchNumbers(winnerNumbers, numbers)))
+        matchCount(WinnerAmountCategory.checkMatch(checkMatchNumbers(winnerNumbers, numbers), winnerNumbers.checkMatchBonusBall(numbers)))
     }
 
     private fun matchCount(matchWinnerAmountCategory: WinnerAmountCategory) {

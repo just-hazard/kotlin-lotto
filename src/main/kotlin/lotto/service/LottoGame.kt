@@ -23,7 +23,7 @@ class LottoGame {
     private fun statistic() : Statistic {
         statistic = Statistic()
         statistic.confirmOfLotto(buyLotto(changeCoin(InputView.inputBuyMoney())),
-            createWinnerNumbers(InputView.inputWinnerNumbers()))
+            createWinnerNumbers(InputView.inputWinnerNumbers(), InputView.inputBonusBall()))
         return statistic
     }
 
@@ -32,9 +32,8 @@ class LottoGame {
         return money.coin.coin
     }
 
-    private fun createWinnerNumbers(inputWinnerNumbers: String): WinnerNumbers {
-        // 보너스볼 리팩토링
-        return WinnerNumbers(inputWinnerNumbers,1)
+    private fun createWinnerNumbers(inputWinnerNumbers: String, inputBonusBall: Int): WinnerNumbers {
+        return WinnerNumbers(inputWinnerNumbers,inputBonusBall)
     }
 
     private fun buyLotto(coin : Int) : Lottos {

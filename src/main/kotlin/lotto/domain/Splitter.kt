@@ -6,6 +6,7 @@ class Splitter {
         var numbers : MutableList<Number> = mutableListOf()
 
         fun splitStringNumbers(inputNumbers: String) : List<Number> {
+            numbers.clear()
             return createWinnerNumbers(inputNumbers.trim().split(COMMA))
         }
 

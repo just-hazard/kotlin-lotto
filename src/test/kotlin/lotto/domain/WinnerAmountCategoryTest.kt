@@ -13,7 +13,7 @@ class WinnerAmountCategoryTest {
         "6=2000000000=6개 일치"],
         delimiter = '=')
     fun 로또_결과_확인(matchNumber: Int,winningAmount: Int, message: String) {
-        val winnerAmountCategory = WinnerAmountCategory.checkMatch(matchNumber)
+        val winnerAmountCategory = WinnerAmountCategory.checkMatch(matchNumber, true)
         assertThat(winnerAmountCategory.matchNumber).isEqualTo(matchNumber)
         assertThat(winnerAmountCategory.winningAmount).isEqualTo(winningAmount)
         assertThat(winnerAmountCategory.message).isEqualTo(message)

@@ -11,11 +11,10 @@ class StatisticTest {
     private lateinit var winnerNumbers: WinnerNumbers
 
     @BeforeEach
-    internal fun setUp() {
+    fun setUp() {
         statistic = Statistic()
         lottos = Lottos()
-        // 보너스볼 리팩토링
-        winnerNumbers = WinnerNumbers("1,2,3,4,5,6",7)
+        winnerNumbers = WinnerNumbers("1,2,3,4,5,6",45)
     }
 
     @Test
@@ -27,7 +26,8 @@ class StatisticTest {
                 Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(3),LottoNumbers.of(4),LottoNumbers.of(8),LottoNumbers.of(7))),
                 Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(3),LottoNumbers.of(9),LottoNumbers.of(8),LottoNumbers.of(7))),
                 Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(10),LottoNumbers.of(9),LottoNumbers.of(8),LottoNumbers.of(7))),
-                Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(11),LottoNumbers.of(12),LottoNumbers.of(13),LottoNumbers.of(14)))
+                Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(11),LottoNumbers.of(12),LottoNumbers.of(13),LottoNumbers.of(14))),
+                Lotto(listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(3),LottoNumbers.of(4),LottoNumbers.of(5),LottoNumbers.of(45)))
             )
         )
 
@@ -36,6 +36,7 @@ class StatisticTest {
 
         // then
         assertThat(statistic.matchResultMap[WinnerAmountCategory.FIRST]).isEqualTo(1)
+        assertThat(statistic.matchResultMap[WinnerAmountCategory.SECOND]).isEqualTo(1)
         assertThat(statistic.matchResultMap[WinnerAmountCategory.THIRD]).isEqualTo(1)
         assertThat(statistic.matchResultMap[WinnerAmountCategory.FORTH]).isEqualTo(1)
         assertThat(statistic.matchResultMap[WinnerAmountCategory.FIFTH]).isEqualTo(1)

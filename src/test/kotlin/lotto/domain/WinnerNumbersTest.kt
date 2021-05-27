@@ -26,4 +26,11 @@ class WinnerNumbersTest {
         }.isInstanceOf(RuntimeException::class.java)
             .hasMessage("당첨번호와 보너스 번호가 중복됩니다.")
     }
+
+    @Test
+    fun 포함된_번호_체크() {
+        winnerNumbers = WinnerNumbers("1,2,3,4,5,6",7)
+        val numbers = listOf(LottoNumbers.of(1),LottoNumbers.of(2),LottoNumbers.of(7))
+        assertThat(winnerNumbers.checkMatchBonusBall(numbers)).isTrue
+    }
 }
