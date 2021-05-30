@@ -1,11 +1,9 @@
 package lotto.view
 
-import lotto.domain.Lotto
-import lotto.domain.Money
+import lotto.domain.Lottos
 import lotto.domain.Statistic
 
 class ResultView {
-
 
     companion object {
 
@@ -31,8 +29,9 @@ class ResultView {
                 }
         }
 
-        fun lottosNumberPrint(lottoList: MutableList<Lotto>) {
-            lottoList.forEach {
+        fun lottosNumberPrint(lottos: Lottos, manualCount: Int) {
+            println("수동으로 ${manualCount}장, 자동으로 ${lottos.lottoList.size - manualCount}개를 구매했습니다.")
+            lottos.lottoList.forEach {
                 println(it.toString())
             }
         }
