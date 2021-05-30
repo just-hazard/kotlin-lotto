@@ -23,7 +23,6 @@ class InputView {
         }
 
         fun inputManualNumbers(): String {
-            println("수동으로 구매할 번호를 입력해 주세요.")
             return inputStringScanner()
         }
 
@@ -32,10 +31,13 @@ class InputView {
             return inputIntScanner()
         }
 
+        fun inputManualMessage() {
+            println("수동으로 구매할 번호를 입력해 주세요.")
+        }
+
         private fun inputStringScanner(): String {
             return sc.next()
         }
-
         private fun inputIntScanner() = sc.nextInt()
     }
 }
