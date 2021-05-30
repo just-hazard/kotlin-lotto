@@ -3,6 +3,7 @@ package lotto.service
 import lotto.domain.*
 import lotto.view.InputView
 import lotto.view.ResultView
+import java.util.stream.Stream
 
 class LottoGame {
 
@@ -38,11 +39,19 @@ class LottoGame {
 //        수동으로 입력한 개수 만큼 수동으로 로또 구매
 //        수동 몇장 자동 몇장 구매했습니다 매세징 후 통합
         val lottos = Lottos()
-        lottos.lottoList.addAll(createManualLottos(InputView.inputManualBuyCount()))
+        lottos.lottoList.addAll(createManualLottos(validationBuyRange(coin, InputView.inputManualBuyCount())))
         val manualCount = lottos.lottoList.size
         lottos.createAutoLotto(coin - manualCount)
         ResultView.lottosNumberPrint(lottos, manualCount)
         return lottos
+    }
+
+    internal fun validationBuyRange(coin: Int, inputManualBuyCount: Int): Int {
+        if(coin < inputManualBuyCount)
+        {
+            throw IllegalArgumentException("구매하려는 개수가 보유한 코인보다 많습니다.")
+        }
+        return inputManualBuyCount
     }
 
     private fun createManualLottos(inputManualBuyCount: Int): List<Lotto> {
