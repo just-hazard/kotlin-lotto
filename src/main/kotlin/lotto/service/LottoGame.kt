@@ -1,9 +1,6 @@
 package lotto.service
 
-import lotto.domain.Lottos
-import lotto.domain.Money
-import lotto.domain.Statistic
-import lotto.domain.WinnerNumbers
+import lotto.domain.*
 import lotto.view.InputView
 import lotto.view.ResultView
 
@@ -37,9 +34,24 @@ class LottoGame {
     }
 
     private fun buyLotto(coin : Int) : Lottos {
+//        수동으로 구매할 로또 수 입력 (Input Number)
+//        수동으로 입력한 개수 만큼 수동으로 로또 구매
+//        수동 몇장 자동 몇장 구매했습니다 매세징 후 통합
         val lottos = Lottos()
-        lottos.createAutoLotto(coin)
-        ResultView.lottosNumberPrint(lottos.lottoList)
+        lottos.lottoList.addAll(createManualLottos(InputView.inputManualBuyCount()))
+        val manualCount = lottos.lottoList.size
+        lottos.createAutoLotto(coin - manualCount)
+        ResultView.lottosNumberPrint(lottos, manualCount)
         return lottos
+    }
+
+    private fun createManualLottos(inputManualBuyCount: Int): List<Lotto> {
+        val manualLottos: MutableList<Lotto> = mutableListOf()
+        InputView.inputManualMessage()
+        repeat(inputManualBuyCount) {
+            manualLottos.add(Lotto(Splitter.splitStringNumbers(InputView.inputManualNumbers())))
+        }
+
+        return manualLottos
     }
 }
