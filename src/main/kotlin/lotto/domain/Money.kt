@@ -19,6 +19,10 @@ class Money(var inputPrice: Int) {
         buyLotto()
     }
 
+    fun getCoin() : Int {
+        return coin.coin
+    }
+
     private fun buyLotto() {
         // inputPrice가 1000원 이상일 경우 Lottos에 Lottos 객체 생성
         // Loop를 돌 때마다 해당 금액이 1000원 이상인지 확인하면서 돌고

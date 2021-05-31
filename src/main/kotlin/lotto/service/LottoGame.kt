@@ -27,7 +27,7 @@ class LottoGame {
 
     private fun changeCoin(inputBuyMoney: Int): Int {
         val money = Money(inputBuyMoney)
-        return money.coin.coin
+        return money.getCoin()
     }
 
     private fun createWinnerNumbers(inputWinnerNumbers: String, inputBonusBall: Int): WinnerNumbers {
@@ -40,7 +40,7 @@ class LottoGame {
 //        수동 몇장 자동 몇장 구매했습니다 매세징 후 통합
         val lottos = Lottos()
         lottos.lottoList.addAll(createManualLottos(validationBuyRange(coin, InputView.inputManualBuyCount())))
-        val manualCount = lottos.lottoList.size
+        val manualCount = lottos.getLottoSize()
         lottos.createAutoLotto(coin - manualCount)
         ResultView.lottosNumberPrint(lottos, manualCount)
         return lottos

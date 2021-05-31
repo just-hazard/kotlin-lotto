@@ -10,6 +10,10 @@ class Lottos {
     var lottoList = mutableListOf<Lotto>()
     private val ranNumbers = RandomNumber()
 
+    fun getLottoSize() : Int {
+        return lottoList.size
+    }
+
     fun createAutoLotto(coin : Int) {
         for(index in Value.ZERO until coin) {
             lottoList.add(Lotto(ranNumbers.createRandomNumbers()))
